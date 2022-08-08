@@ -3,7 +3,7 @@ import { ReactDOM } from "react";
 import {  NavLink } from "react-router-dom";
 function NavBar() {
     return (
-        <div>
+        <div style={{display:"flex",justifyContent:"space-around",fontFamily:"revert",fontSize:"larger", background:"aquamarine"}}>
             <NavLink to="/">
                 Services 💅💅💅 ||
             </NavLink>

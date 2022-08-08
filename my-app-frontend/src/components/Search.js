@@ -1,16 +1,19 @@
 import React from "react";
-function Search(){
+function Search({search,onSearchChange}){
+  // debugger
     return(
         <>
-          <form>
+          <nav>
                 <label>Your name </label>
                 <input
                  type="text"
                   placeholder="your name here"
-                //   value={search}
-                //   onChange={e=>onsearchchange(e.target.value)}
+                  value={search}
+                  // autoComplete="off"
+                  onChange={e=>onSearchChange(e.target.value)}
                   />
-            </form>
+                  {/* <button>Search</button> */}
+            </nav>
         </>
     )
 }
