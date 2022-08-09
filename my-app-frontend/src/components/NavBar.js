@@ -13,6 +13,7 @@ function NavBar() {
             <NavLink to="customer-support">
                 Customer Support ☎️☎️☎️
             </NavLink>
+    
         </div>
     )
 }

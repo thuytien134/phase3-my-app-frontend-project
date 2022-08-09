@@ -6,6 +6,7 @@ import MakeAppointment from "./MakeAppointment";
 import AppointmentList from "./AppointmentList";
 import { Routes, Route } from "react-router-dom";
 import CustomerSuport from "./CustomerSupport";
+import Thankyou from "./Thankyou";
 
 import { useState, useEffect } from "react";
 
@@ -56,6 +57,7 @@ function App() {
         </Route>
         <Route path="/" element={<Services services={services} />}></Route>
         <Route path="customer-support" element={<CustomerSuport/>}></Route>
+        <Route path="thank-you" element={<Thankyou/>}></Route>
       </Routes>
 
     </div>
