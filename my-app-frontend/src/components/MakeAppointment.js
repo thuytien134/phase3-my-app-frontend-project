@@ -53,11 +53,6 @@ function MakeAppointment({ services, onAddAppointment }) {
                     </Form.Label>
                     <Form.Label>
                         Specialist:
-                        {/* <select onChange={e => setSpecialistName(e.target.value)}>
-                            {services.map(service => (
-                                <option key={service.id} value={specialistName}>{service.name}</option>
-                            ))}
-                        </select><br /> */}
                         <Form.Control type="text" value={mySpecialist} disabled readOnly/>
                     </Form.Label>
                     <button  style={{background:"cadetblue",height:"50px",alignSelf:"center"}} >Submit</button>

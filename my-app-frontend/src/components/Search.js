@@ -1,13 +1,12 @@
 import React from "react";
 
 function Search({ search, onSearchChange ,setIsDisplay}) {
-  // debugger
-  // const [isClick, setIsClick]= useState(false)
+
  
   return (
     <>
-      <nav >
-        <label>Your name:  </label>
+      <nav style={{marginLeft: "5rem"}}>
+        <label>Customer name:  </label>
         <input
           type="text"
           placeholder="your name here"
