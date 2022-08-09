@@ -7,8 +7,6 @@ function MakeAppointment({ services, onAddAppointment }) {
     const [myService, setService] = useState("")
     const mySpecialist = Object.assign({}, ...services.filter(service => service.service === myService)).name
 
-    // debugger
-
     function handleSubmit(e) {
         e.preventDefault();
         const obj = {
@@ -60,7 +58,7 @@ function MakeAppointment({ services, onAddAppointment }) {
                                 <option key={service.id} value={specialistName}>{service.name}</option>
                             ))}
                         </select><br /> */}
-                        <Form.Control type="text" value={mySpecialist} />
+                        <Form.Control type="text" value={mySpecialist} disabled readOnly/>
                     </Form.Label>
                     <button  style={{background:"cadetblue",height:"50px",alignSelf:"center"}} >Submit</button>
                 </Form>
