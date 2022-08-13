@@ -2,8 +2,9 @@ import React from "react";
 import { Card, Button } from 'react-bootstrap'
 
 function AppointmentCard({ appointment, onDelete }) {
-
-    function handleDeleteClick() {
+debugger
+    function handleDeleteClick(e) {
+         
         fetch(`http://localhost:9292/appointments/${appointment.id}`, {
             method: "DELETE",
         });
@@ -26,10 +27,10 @@ function AppointmentCard({ appointment, onDelete }) {
                     <Card.Header>Customer name: {appointment.customer_name}</Card.Header>
                     <Card.Body>
                         <Card.Title>Service: {appointment.service}</Card.Title><br />
-                        <Card.Title>Time: {appointment.time}</Card.Title><br />
+                        <Card.Title>Time: {appointment.date_time}</Card.Title><br />
                         <Card.Text>Specialist: {appointment.specialist_name}</Card.Text><br />
                         <Button onClick={handleDeleteClick} style={{ background: "honeydew" }}>🗑</Button>
-                        <Button style={{ background: "honeydew" }}>✏️</Button>
+                        {/* <Button style={{ background: "honeydew" }}>✏️</Button> */}
                     </Card.Body>
                 </Card>
             </ul>

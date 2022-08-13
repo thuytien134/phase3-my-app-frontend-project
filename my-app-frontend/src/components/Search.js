@@ -1,6 +1,6 @@
 import React from "react";
 
-function Search({ search, onSearchChange ,setIsDisplay}) {
+function Search({ search, onSearchChange ,handleClick}) {
 
  
   return (
@@ -13,7 +13,7 @@ function Search({ search, onSearchChange ,setIsDisplay}) {
           value={search}
           onChange={e => onSearchChange(e.target.value)}
         />
-        <button onClick={()=> setIsDisplay(true)} >Search</button>
+        <button onClick={handleClick} >Search</button>
       </nav>
     </>
   )

@@ -1,16 +1,17 @@
-import React, { useState } from "react";
-import { Button, Form } from 'react-bootstrap';
+import React, {  useState } from "react";
+import { Form} from 'react-bootstrap';
 
-function MakeAppointment({ services, onAddAppointment }) {
+
+function MakeAppointment({ services }) {
     const [name, setName] = useState("")
     const [time, setTime] = useState("")
     const [myService, setService] = useState("")
     const mySpecialist = Object.assign({}, ...services.filter(service => service.service === myService)).name
-
+   
     function handleSubmit(e) {
         e.preventDefault();
         const obj = {
-            time: time,
+            date_time: time,
             service: myService,
             specialist_name: mySpecialist,
             customer_name: name
@@ -22,17 +23,20 @@ function MakeAppointment({ services, onAddAppointment }) {
             },
             body: JSON.stringify(obj),
         })
-
             .then((r) => r.json())
-            .then((obj) => {
-                onAddAppointment(obj);
-
+            .then(() => {
+                setTimeout(() => {
+                    alert('Appointment made Successful')
+                }, 500)
+                setName("");
+                setTime("")
             });
-    }
-
+        }
+      
+        
     return (
         <>
-            <h3 style={{textAlign:"center"}}>Make appointment</h3>
+            <h3 style={{ textAlign: "center" }}>Make appointment</h3>
             <div>
                 <Form className="make-appointment" onSubmit={handleSubmit}
                     style={{ display: "flex", justifyContent: "space-evenly", alignItems: "stretch" }}>
@@ -53,11 +57,11 @@ function MakeAppointment({ services, onAddAppointment }) {
                     </Form.Label>
                     <Form.Label>
                         Specialist:
-                        <Form.Control type="text" value={mySpecialist} disabled readOnly/>
+                        <Form.Control type="text" value={mySpecialist} disabled readOnly />
                     </Form.Label>
-                    <button  style={{background:"cadetblue",height:"50px",alignSelf:"center"}} >Submit</button>
+                    <button style={{ background: "cadetblue", height: "50px", alignSelf: "center" }} >Submit</button>
                 </Form>
-
+               
             </div>
         </>
     )

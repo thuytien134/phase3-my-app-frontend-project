@@ -10,39 +10,30 @@ import Thankyou from "./Thankyou";
 
 import { useState, useEffect } from "react";
 
-
-
 function App() {
 
   const [services, setServices] = useState([]);
   const [appointments, setAppointment] = useState([]);
   const [search, setSearch] = useState("");
+  // debugger
   useEffect(() => {
     fetch("http://localhost:9292/services")
       .then((r) => r.json())
       .then((services) => setServices(services));
   }, []);
-
-  useEffect(() => {
-    fetch("http://localhost:9292/appointments")
+function handleClick(){
+    fetch(`http://localhost:9292/customers/${search}/appointments`)
       .then((r) => r.json())
       .then((appointment) => setAppointment(appointment));
-  }, []);
+}
 
-  function handleAddAppointment(newAppointment) {
-    setAppointment([...appointments, newAppointment]);
-  }
+
 
   function handleDeleteAppointment(id) {
     const updatedAppointment = appointments.filter((a) => a.id !== id);
     setAppointment(updatedAppointment);
   }
 
-
-  const displayedAppointment = appointments.filter((a) =>
-    a.customer_name.toLowerCase().includes(search.toLowerCase())
-  );
-  // debugger
   return (
     <div className="App">
       <Header />
@@ -51,9 +42,9 @@ function App() {
       <Routes>
         <Route path="appointments"
           element={[
-            <MakeAppointment services={services} onAddAppointment={handleAddAppointment} />,
-            <AppointmentList appointments={displayedAppointment} onDelete={handleDeleteAppointment}
-              search={search} onSearchChange={setSearch} />]}>
+            <MakeAppointment services={services}  />,
+            <AppointmentList appointments={appointments} onDelete={handleDeleteAppointment}
+              search={search} onSearchChange={setSearch} handleClick={handleClick}/>]}>
         </Route>
         <Route path="/" element={<Services services={services} />}></Route>
         <Route path="customer-support" element={<CustomerSuport/>}></Route>
