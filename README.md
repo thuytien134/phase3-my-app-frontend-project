@@ -1,1 +1,1 @@
-# phase3-my-app-frontend-project
+# please `cd my-app-frontend` directory.
